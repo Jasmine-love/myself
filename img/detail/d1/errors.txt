@@ -1,0 +1,5 @@
+[2018-03-21 17:31:08] layer "Dr.Dabour 致力于为全球消费者提供专业、安全的纯植物功效性护肤品。创始人Dr.Dabour 是以色列医药学博士，曾任以": Expected end of input but "\u662F" found.
+[2018-03-21 17:31:08] layer "双方达成合作以后，dcbrand 大诚对德葆Dr.Dabour 品牌在中国市场的状况进行了深入的调研和分析。经过研究发现，在中": Expected end of input but "\u54C1" found.
+[2018-03-21 17:31:08] layer "dcbrand 大诚为Dr.Dabour 进行展厅空间设计，现已在北京王府井银泰in88 购物中心开设的展厅中应用。Dr.Da": Unsupported extension: da
+[2018-03-21 17:31:08] layer "在传播层面，dcbrand 大诚将德葆Dr.Dabour 的品牌故事与品牌产品通过软文发布、线下活动、实体店体验、视频宣传进行": Expected end of input but "\u7684" found.
+[2018-03-21 17:31:08] layer "目前，德葆Dr.Dabour 品牌在中国的本土化之路仍旧任重而道远，今后dcbrand 大诚也将与德葆Dr.Dabour 在品": Expected end of input but "\u5728" found.

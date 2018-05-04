@@ -1,0 +1,147 @@
+
+//在其他地方可以调用eg.
+//样式结果请看main.css
+// div.null {
+//     .transform_pos(20%, 30%);
+//     .transform_scale(1.2);
+//     .transform_rotate(120deg);
+//     .transform_skew(10deg);
+//     .transition(width, 3s, ease-in-out);
+//     .trangle(4px, #f00, #0f0, #00f,#ff0);
+//     .opacity(80);
+//     .border-radius(4px);
+//     .border-radius-custom(2px,3px,4px,5px);
+//     .inner-shadow(4px,5px,10px,#f00);
+//     .box-shadow(1px,2px,5px,#0f0);
+//     .gradient(top, #f00, #0f0);
+//     .reflect (20%, 0.3);
+// }
+
+
+
+/* 位移 */
+.transform_pos(@xval: 50%, @yval: 50%) {
+    -webkit-transform: translate(@xval, @yval);
+    -moz-transform: translate(@xval, @yval);
+    -ms-transform: translate(@xval, @yval);
+    -o-transform: translate(@xval, @yval);
+    transform: translate(@xval, @yval);
+}
+/* 大小 */
+.transform_scale(@size) {
+    -webkit-transform: scale(@size);
+    -moz-transform: scale(@size);
+    -ms-transform: scale(@size);
+    -o-transform: scale(@size);
+    transform: scale(@size);
+}
+/* 旋转 */
+.transform_rotate(@deg) {
+    -webkit-transform: rotate(@deg);
+    -moz-transform: rotate(@deg);
+    -ms-transform: rotate(@deg);
+    -o-transform: rotate(@deg);
+    transform: rotate(@deg);
+}
+/* 斜切 */
+.transform_skew(@deg) {
+    -webkit-transform: skew(@deg);
+    -moz-transform: skew(@deg);
+    -ms-transform: skew(@deg);
+    -o-transform: skew(@deg);
+    transform: skew(@deg);
+}
+//@fun
+//linear		线性过渡
+//ease			平滑过渡
+//ease-in		由慢到快
+//ease-out		由快到慢
+//ease-in-out	由慢到快再到慢
+//step-start	等同于steps(1,start)
+//step-end 		等同于 steps(1,end
+.transition(@attr: all, @time: 1s, @fun: ease-in-out) {
+    -webkit-transition: @attr @time @fun;
+    -moz-transition: @attr @time @fun;
+    -ms-transition: @attr @time @fun;
+    -o-transition: @attr @time @fun;
+    transition: @attr @time @fun;
+
+}
+/* 三角形 Trangle */
+/* 5个参数：宽度，颜色（上、右、下、左） */
+.trangle(@width: 8px, @pram1: transparent, @pram2: transparent, @pram3: transparent, @pram4: transparent){
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: @width;
+    border-color: @pram1 @pram2 @pram3 @pram4;
+}
+/* 文本折行 Wrap */
+/* 如英文或数字过长的换行显示 */
+.wrap {
+    text-wrap: wrap;
+    white-space: pre-wrap;
+    white-space: -moz-pre-wrap;
+    word-wrap: break-word;
+}
+/* 透明度 Opacity */
+.opacity(@opacity){
+    @opa: (@opacity*100);
+    filter: alpha(opacity=@opa);
+    opacity: @opacity;
+}
+
+
+//圆角
+.border-radius(@radius) {
+    border-radius: @radius;
+    -moz-border-radius: @radius;
+    -webkit-border-radius: @radius;
+}
+
+//四角半径定制
+.border-radius-custom (@topleft: 5px, @topright: 5px, @bottomleft: 5px, @bottomright: 5px) {
+    -webkit-border-radius: @topleft @topright @bottomright @bottomleft;
+    -moz-border-radius: @topleft @topright @bottomright @bottomleft;
+    border-radius: @topleft @topright @bottomright @bottomleft;
+}
+//文本超出显示省略号 Ellipsis
+//只需要给标签如li设置width或者max-width，再给标签加上.text-autocut这个class即可
+.text-ellipsis{
+    overflow: hidden;
+    white-space: nowrap;
+    -webkit-text-overflow:ellipsis;
+    -khtml-text-overflow: ellipsis;
+    -icab-text-overflow: ellipsis;
+    -moz-text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+}
+//内阴影 Inner-shadow
+.inner-shadow(@x,@y,@r,@color){
+    -webkit-box-shadow:inset @x @y @r @color;
+    -moz-box-shadow:inset @x @y @r @color;
+    box-shadow:inset @x @y @r @color;
+}
+//外阴影 Inner-shadow
+.box-shadow(@x,@y,@r,@color) {
+    -webkit-box-shadow: @x @y @r @color;
+    -moz-box-shadow: @x @y @r @color;
+    box-shadow:@x @y @r @color;
+}
+//颜色渐变 Gradients 有点问题
+//第一个参数指定渐变的方向：top、left，第二第三个参数为起始和终止颜色，兼容IE7-11、chrome、FF等各大浏览器，不支持的取2个颜色的混合色，IE使用滤镜，因为LESS不支持滤镜写法，所以取值时需要加上 ~””。
+.gradient(@origin: top, @startColor, @endColor){
+    background-color:@startColor/2 + @endColor/2;
+    filter:~"progid:DXImageTransform.Microsoft.gradient(startColorstr='@{startColor}', endColorstr='@{endColor}')";
+    background-image: -webkit-linear-gradient(@origin, @startColor, @endColor);
+    background-image:-moz-linear-gradient(@origin, @startColor, @endColor);
+    background-image: -o-linear-gradient(@origin, @startColor, @endColor);
+    background-image: -ms-linear-gradient(@origin, @startColor, @endColor);
+    background-image: linear-gradient(@origin, @startColor, @endColor);
+}
+/* 镜像效果Reflect */
+/* CSS3 中的镜像效果只支持webkit浏览器 */
+.reflect (@length: 30%, @opacity: 0.2){
+    -webkit-box-reflect: below -40px -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(@length, transparent), to(rgba(255,255,255,@opacity)));
+}
